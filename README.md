@@ -1,7 +1,9 @@
 # Graduation-Thesis
 
-download_data.py   ←（手動で一度だけ実行）
-        ↓
+## download_data.py   ←（手動で一度だけ実行）
+
+##        ↓
+
 preprocess.py
         ↓
 graph_builder.py
