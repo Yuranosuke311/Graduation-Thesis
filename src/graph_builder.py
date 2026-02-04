@@ -14,6 +14,6 @@ def build_graph(df_window):
         G.add_node(u, node_type="user")
         G.add_node(r, node_type="resource")
 
-        G.add_edge(u, r, weight=row["count"])
+        G.add_edge(u, r, weight=row["access_count"])
 
     return G
