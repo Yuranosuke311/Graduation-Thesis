@@ -1,0 +1,6 @@
+# src/config.py
+
+TIME_WINDOW = "1h"
+EMBED_DIM = 16
+HMM_STATES = 3
+RANDOM_SEED = 42
