@@ -2,6 +2,6 @@ numpy
 pandas
 scikit-learn
 hmmlearn
-torch
-torch-geometric
 networkx
+kaggle
+torch-geometric

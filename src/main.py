@@ -10,12 +10,16 @@ from embedding import graph_to_embedding
 from hmm_model import train_hmm
 from download_data import download
 
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+print("Using device:", device)
+
+
 def main():
     df = load_and_preprocess("data/cybersecurity_threat_detection_logs.csv", TIME_WINDOW)
 
     time_windows = sorted(df["time_window"].unique())
 
-    gnn = GCN(in_dim=1, hidden_dim=8, out_dim=EMBED_DIM)
+    gnn = GCN(in_dim=1, hidden_dim=8, out_dim=EMBED_DIM).to(device)
 
     embeddings = []
 
