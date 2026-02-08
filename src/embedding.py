@@ -8,7 +8,7 @@ from torch_geometric.utils import from_networkx
 from torch_geometric.data import Data
 
 def graph_to_embedding(G, model):
-    data = from_networkx(G)
+     data = from_networkx(G).to(device=model.device)
     data.x = torch.ones((data.num_nodes, 1))  # ノード特徴なし
 
     model.eval()
