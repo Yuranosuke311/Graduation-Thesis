@@ -29,7 +29,7 @@ def main():
     for t in time_windows:
         df_t = df[df["time_window"] == t]
         G = build_graph(df_t)
-        emb = graph_to_embedding(G, gnn)
+        emb = graph_to_embedding(G, gnn,device)
         embeddings.append(emb)
 
     print("build_graph is done")
