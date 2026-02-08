@@ -16,10 +16,12 @@ print("Using device:", device)
 
 def main():
     df = load_and_preprocess("data/cybersecurity_threat_detection_logs.csv", TIME_WINDOW)
+    print("load_and_preprocess is done")
 
     time_windows = sorted(df["time_window"].unique())
 
     gnn = GCN(in_dim=1, hidden_dim=8, out_dim=EMBED_DIM).to(device)
+    print("GCN is done")
 
     embeddings = []
 
@@ -30,6 +32,8 @@ def main():
         emb = graph_to_embedding(G, gnn)
         embeddings.append(emb)
 
+    print("build_graph is done")
+    
     X = np.vstack(embeddings)
 
     #HMMで時系列パターンを学習
