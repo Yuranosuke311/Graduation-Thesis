@@ -9,7 +9,8 @@ from torch_geometric.data import Data
 
 def graph_to_embedding(G, model,device):
     data = from_networkx(G).to(device)
-    data.x = torch.ones((data.num_nodes, 1))  # ノード特徴なし
+    data.x = torch.ones((data.num_nodes, 1),device=device)  # ノード特徴なし
+    #ノード特徴を「1」から意味のあるものへ（bytes_sum / access_count / threat_label 由来）変更したい　02/08
 
     model.eval()
     with torch.no_grad():
