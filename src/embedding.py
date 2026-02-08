@@ -16,5 +16,5 @@ def graph_to_embedding(G, model,device):
     with torch.no_grad():
         node_emb = model(data.x, data.edge_index)
 
-    graph_emb = node_emb.mean(dim=0).numpy()
+    graph_emb = node_emb.mean(dim=0).cpu().numpy()
     return graph_emb
